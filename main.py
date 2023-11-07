@@ -22,7 +22,7 @@ def main():
     # Model evaluation
     y_val_pred = model.predict(X_val)
     y_val_acc = accuracy_score(y_val, y_val_pred)
-    print(f"CustomLogisticRegression\nAccuracy: {y_val_acc}")
+    print(f"CustomLogisticRegression\tAccuracy: {y_val_acc}")
 
     # Model prediction
     y_test_pred = model.predict(X_test)
@@ -30,13 +30,10 @@ def main():
     ############### LogisticRegression ###############
     
     logReg = LogisticRegression()
-    logReg.fit(X_train, y_train)
+    logReg.fit(X_train, y_train.ravel())
     y_val_pred2 = logReg.predict(X_val)
     y_val_acc2 = accuracy_score(y_val, y_val_pred2)
-    print(f"LogisticRegression\nAccuracy: {y_val_acc2}")
-
-
-
+    print(f"LogisticRegression\tAccuracy: {y_val_acc2}")
 
 
     # Create submission file

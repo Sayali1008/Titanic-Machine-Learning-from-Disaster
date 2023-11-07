@@ -39,7 +39,6 @@ class LogisticRegression():
         for epoch in range(self.epochs):
             y_pred = np.dot(X, self.weights) + self.bias
             y_pred = self.sigmoid(y_pred)
-            y_pred = np.reshape(y_pred, (y_pred.shape[0], 1))
 
             # Calculate accuracy
             y_pred_list = np.array([1 if y_pred[i] > 0.5 else 0 for i in range(len(y_pred))])
@@ -55,9 +54,8 @@ class LogisticRegression():
             self.weights -= self.learning_rate * dw
             self.bias -= self.learning_rate * db
 
-            # Print
-            if epoch % parts == 0:
-                print(f"Epoch {epoch}: Train accuracy: {acc} \t Train loss: {loss}")
+            # if epoch % parts == 0:
+            #     print(f"Epoch {epoch}: Train accuracy: {acc} \t Train loss: {loss}")
         
         train_acc = np.mean(train_acc_list)
         train_loss = np.mean(train_loss_list)
